@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="Practice">
+    <property environment="env"/>
+    <property name="junit.output.dir" value="junit"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.5"/>
+    <property name="source" value="1.5"/>
+    <path id="Practice.classpath">
+        <pathelement location="bin"/>
+        <pathelement location="../../../Users/User/Downloads/Software/junit-4.10.jar"/>
+        <pathelement location="../../../Users/User/Downloads/Software/selenium-server-standalone-3.4.0.jar"/>
+        <pathelement location="../../../Users/User/Downloads/Software/selenium-server-2.44.0/selenium-2.44.0/selenium-server-2.44.0.jar"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="Practice.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target name="AllTests">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="seleniumPractice.AllTests" todir="${junit.output.dir}"/>
+            <classpath refid="Practice.classpath"/>
+        </junit>
+    </target>
+    <target name="Armstrong">
+        <java classname="javaPractice.Armstrong" failonerror="true" fork="yes">
+            <classpath refid="Practice.classpath"/>
+        </java>
+    </target>
+    <target name="Ex_Actions_ContextClick (1)">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="seleniumPractice.Ex_Actions_ContextClick" todir="${junit.output.dir}"/>
+            <classpath refid="Practice.classpath"/>
+        </junit>
+    </target>
+    <target name="Ex_Actions_ContextClick">
+        <java classname="seleniumPractice.Ex_Actions_ContextClick" failonerror="true" fork="yes">
+            <classpath refid="Practice.classpath"/>
+        </java>
+    </target>
+    <target name="Ex_Actions_DragAndDrop">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="seleniumPractice.Ex_Actions_DragAndDrop" todir="${junit.output.dir}"/>
+            <classpath refid="Practice.classpath"/>
+        </junit>
+    </target>
+    <target name="Ex_Actions_DragAndDrop_Trial">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="seleniumPractice.Ex_Actions_DragAndDrop_Trial" todir="${junit.output.dir}"/>
+            <classpath refid="Practice.classpath"/>
+        </junit>
+    </target>
+    <target name="Ex_Actions_MoveToElement">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="seleniumPractice.Ex_Actions_MoveToElement" todir="${junit.output.dir}"/>
+            <classpath refid="Practice.classpath"/>
+        </junit>
+    </target>
+    <target name="Ex_JunitTestCase">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="seleniumPractice.Ex_JunitTestCase" todir="${junit.output.dir}"/>
+            <classpath refid="Practice.classpath"/>
+        </junit>
+    </target>
+    <target name="Google (1)">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="Google" todir="${junit.output.dir}"/>
+            <classpath refid="Practice.classpath"/>
+        </junit>
+    </target>
+    <target name="Google (2)">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="seleniumPractice.Google" todir="${junit.output.dir}"/>
+            <classpath refid="Practice.classpath"/>
+        </junit>
+    </target>
+    <target name="Registration">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="seleniumPractice.Registration" todir="${junit.output.dir}"/>
+            <classpath refid="Practice.classpath"/>
+        </junit>
+    </target>
+    <target name="Registration1">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="seleniumPractice.Registration1" todir="${junit.output.dir}"/>
+            <classpath refid="Practice.classpath"/>
+        </junit>
+    </target>
+    <target name="Hello">
+        <java classname="javaPractice.Hello" failonerror="true" fork="yes">
+            <classpath refid="Practice.classpath"/>
+        </java>
+    </target>
+    <target name="Hello (1)">
+        <java classname="Hello" failonerror="true" fork="yes">
+            <classpath refid="Practice.classpath"/>
+        </java>
+    </target>
+    <target name="junitreport">
+        <junitreport todir="${junit.output.dir}">
+            <fileset dir="${junit.output.dir}">
+                <include name="TEST-*.xml"/>
+            </fileset>
+            <report format="frames" todir="${junit.output.dir}"/>
+        </junitreport>
+    </target>
+</project>
